@@ -31,11 +31,6 @@ app.get("/books", (req, res) => {
 app.get("/book/:isbn", (req, res) => {
   // Reading isbn from the URL
   const isbn = req.params.isbn;
-});
-
-app.get("/book/:isbn", (req, res) => {
-  // Reading isbn from the URL
-  const isbn = req.params.isbn;
 
   // Searching books for the isbn
   for (let book of books) {
