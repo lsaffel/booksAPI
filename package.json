@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/lsaffel/restAPI/issues"
   },
-  "homepage": "https://github.com/lsaffel/restAPI#readme"
+  "homepage": "https://github.com/lsaffel/restAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
+  }
 }
