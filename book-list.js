@@ -1,9 +1,36 @@
 const setEditModal = (isbn) => {
-  // We will implement this later
+  // Get information about the book using isbn
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("GET", `http://localhost:3000/book/${isbn}`, false);
+  xhttp.send();
+
+  const book = JSON.parse(xhttp.responseText);
+
+  const { title, author, publisher, publish_date, numOfPages } = book;
+
+  // Filling information about the book in the form inside the modal
+  document.getElementById("isbn").value = isbn;
+  document.getElementById("title").value = title;
+  document.getElementById("author").value = author;
+  document.getElementById("publisher").value = publisher;
+  document.getElementById("publish_date").value = publish_date;
+  document.getElementById("numOfPages").value = numOfPages;
+
+  // Setting up the action url for the book
+  document.getElementById(
+    "editForm"
+  ).action = `http://localhost:3000/book/${isbn}`;
 };
 
 const deleteBook = (isbn) => {
-  // We will implement this later
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("DELETE", `http://localhost:3000/book/${isbn}`, false);
+  xhttp.send();
+
+  // Reloading the page
+  location.reload();
 };
 
 const loadBooks = () => {
@@ -28,7 +55,8 @@ const loadBooks = () => {
 
                         <hr>
 
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteBook(${book.isbn})">Delete</button>
+
                         <button types="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
                             Edit
