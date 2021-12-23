@@ -1,6 +1,8 @@
-# restAPI
+# booksAPI
 
-Building a REST API with Node and Express
+Building a simple API with Node and Express
+
+node version: 16.13.1
 
 Run from a terminal window with:
 node book-api.js
